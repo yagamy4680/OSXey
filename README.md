@@ -42,7 +42,7 @@ To-Do List
 * Better way of choosing package manager (maybe as option rather then config?) 
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
 * Look into logo allignment in code (match what is dispalyed)
- Loop for assigning color variables (smaller code)
+* Loop for assigning color variables (smaller code)
 
 
 Credit
