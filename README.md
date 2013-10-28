@@ -37,7 +37,6 @@ Change the value of the variable packagehandler, to change the package handler. 
 To-Do List
 ------------
 
-* Better Logo
 * Loop for assigning color variables (smaller code)
 * Better way to install (don't dump straight into /bin , maybe install script?)
 * Update Screenshots
