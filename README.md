@@ -3,17 +3,17 @@ OSXey
 
 A script for OS X to display system info
 
-!['Screenshot'](https://raw.github.com/Gary00/archey-osx/master/screenshot_normal.png)
-!['Screenshot'](https://raw.github.com/Gary00/archey-osx/master/screenshot_color.png)
+!['Screenshot'](https://raw.github.com/Gary00/OSXey/master/screenshot_normal.png)
+!['Screenshot'](https://raw.github.com/Gary00/OSXey/master/screenshot_color.png)
 
 
 Installation
 ------------
     $ git clone git@github.com:Gary00/OSXey.git
     $ cd OSXey/
-    $ sudo cp osxey /bin/osxey
-    $ sudo chmod +x /bin/osxey 
-    $ osxey	
+    $ sudo cp OSXey /bin/OSXey
+    $ sudo chmod +x /bin/OSXey 
+    $ OSXey	
 
 
 Options
@@ -24,7 +24,7 @@ Options
 
 Configuration
 ------------
- 	$ sudo vim /bin/osxey
+ 	$ sudo vim /bin/OSXey
 
 Change the value of the variable color, to change the color. The options listed under #Colors
 
