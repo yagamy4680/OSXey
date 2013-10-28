@@ -43,6 +43,7 @@ To-Do List
 * Look into logo allignment in code (match what is dispalyed)
 * Better way of choosing package manager (maybe as option rather then config?) 
 * Kernal is not Darwin, it's XNU - Change This
+* Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
 
 Thanks
 ------
