@@ -9,7 +9,7 @@ uptime=$(uptime | sed 's/.*up \([^,]*\), .*/\1/')
 shell="$SHELL"
 terminal="$TERM"
 #brewpackages="`brew list -l | wc -l | awk '{print $1 }'`"
-macportpackages="`port installed | wc -l | awk '{print $1 }'`"
+#macportpackages="`port installed | wc -l | awk '{print $1 }'`"
 cpu=$(sysctl -n machdep.cpu.brand_string)
 
 # removes (R) and (TM) from the CPU name so it fits in a standard 80 window
@@ -47,8 +47,6 @@ if [[ $1 == "-c" ]] || [[ $1 == "--color" ]]; then
 fi
 
 userText="${textColor}User:${normal}"
-
-
 hostnameText="${textColor}Hostname:${normal}"
 versionText="${textColor}Version:${normal}"
 kernelText="${textColor}Kernel:${normal}"
@@ -61,19 +59,20 @@ memoryText="${textColor}Memory:${normal}"
 diskText="${textColor}Disk:${normal}"
 
 echo -e "
-                  
-${GREEN}                 ###
-${GREEN}               ####	              $userText $user
-${GREEN}               ###                    $hostnameText $hostname
-${GREEN}       #######    #######             $versionText $version
-${YELLOW}     ######################           $kernelText $kernel
-${YELLOW}    #####################             $uptimeText $uptime
-${LRED}    ####################              $shellText $shell
-${RED}    ####################              $terminalText $terminal
-${RED}    #####################             $packagehandlerText $packagehandler
-${PURPLE}     ######################           $cpuText $cpu 
-${PURPLE}      ####################	      $memoryText $ram
-${BLUE}        ################              $diskText $disk
-${BLUE}         ####     ##### ${normal}
-               
+
+${GREEN}                     ,
+${GREEN}                  ,##; 
+${GREEN}                 ####             $userText $user
+${GREEN}                ;#\"               $hostnameText $hostname
+${GREEN}       ,#####;,   ,;#####;,       $versionText $version
+${GREEN}     ######################\"      $kernelText $kernel
+${YELLOW}    #####################\"        $uptimeText $uptime
+${YELLOW}    #####################         $shellText $shell
+${LRED}    #####################         $terminalText $terminal
+${RED}    ######################,       $packagehandlerText $packagehandler
+${RED}     #######################      $cpuText $cpu
+${PURPLE}      ####################\"       $memoryText: $ram
+${BLUE}        #################'        $diskText $disk
+${BLUE}         \"####\"\"\"\"####\" ${normal}
+
 "
