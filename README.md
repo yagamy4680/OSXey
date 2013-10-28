@@ -1,7 +1,7 @@
-Archey for OS X
+OSXey
 ===============
 
-An archey script for OS X.
+A script for OS X to display system info
 
 !['Screenshot'](https://raw.github.com/Gary00/archey-osx/master/screenshot_normal.png)
 !['Screenshot'](https://raw.github.com/Gary00/archey-osx/master/screenshot_color.png)
@@ -9,11 +9,11 @@ An archey script for OS X.
 
 Installation
 ------------
-    $ git clone git@github.com:Gary00/archey-osx.git
-    $ cd archey-osx/
-    $ sudo cp archey /bin/archey
-    $ sudo chmod +x /bin/archey 
-    $ archey	
+    $ git clone git@github.com:Gary00/OSXey.git
+    $ cd OSXey/
+    $ sudo cp osxey /bin/osxey
+    $ sudo chmod +x /bin/osxey 
+    $ osxey	
 
 
 Options
@@ -24,7 +24,7 @@ Options
 
 Configuration
 ------------
- 	$ sudo vim /bin/archey
+ 	$ sudo vim /bin/osxey
 
 Change the value of the variable color, to change the color. The options listed under #Colors
 
@@ -48,4 +48,4 @@ To-Do List
 Thanks
 ------
 Thanks to the original developer of of Archey, [djmelik](https://github.com/djmelik/archey).
-And to [joshfinnie](https://github.com/joshfinnie/archey-osx) for is good osx implementation.  
+And to [joshfinnie](https://github.com/joshfinnie/archey-osx) for his good osx implementation.  
