@@ -44,7 +44,7 @@ To-Do List
 * Kernal is not Darwin, it's XNU - Change This
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
 
-Thanks
+Credit
 ------
-Thanks to the original developer of of Archey, [djmelik](https://github.com/djmelik/archey).
-And to [joshfinnie](https://github.com/joshfinnie/archey-osx) for his good osx implementation.  
+Credit to the original developer of Archey, [djmelik](https://github.com/djmelik/archey).
+And to [joshfinnie](https://github.com/joshfinnie/archey-osx) which this is forked from. To [benjaminwhite](https://github.com/benjaminwhite/OSXey) for his awesome Apple Logo art.
