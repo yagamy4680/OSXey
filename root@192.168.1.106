@@ -4,7 +4,7 @@
 user=$(whoami)
 hostname=$(hostname | sed 's/.local//g')
 version="OS X $(sw_vers -productVersion)"
-kernel="XNU"
+kernel=$(uname)
 uptime=$(uptime | sed 's/.*up \([^,]*\), .*/\1/')
 shell="$SHELL"
 terminal="$TERM"
