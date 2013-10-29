@@ -71,7 +71,7 @@ ${YELLOW}    #####################         $shellText $shell
 ${LRED}    #####################         $terminalText $terminal
 ${RED}    ######################,       $packagehandlerText $packagehandler
 ${RED}     #######################      $cpuText $cpu
-${PURPLE}      ####################\"       $memoryText: $ram
+${PURPLE}      ####################\"       $memoryText $ram
 ${BLUE}        #################'        $diskText $disk
 ${BLUE}         \"####\"\"\"\"####\" ${normal}
 
