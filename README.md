@@ -37,13 +37,12 @@ Change the value of the variable packagehandler, to change the package handler. 
 To-Do List
 ------------
 
-* Kernal is not Darwin, it's XNU - Change This
 * Better way to install (don't dump straight into /bin , maybe install script?)
 * Better way of choosing package manager (maybe as option rather then config?) 
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
 * Look into logo allignment in code (match what is dispalyed)
 * Loop for assigning color variables (smaller code)
-
+* Display name of Operating System next to Version. For example. "Version OS X 10.9 - Mavericks"
 
 Credit
 ------
