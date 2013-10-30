@@ -43,6 +43,7 @@ To-Do List
 * Look into logo allignment in code (match what is dispalyed)
 * Loop for assigning color variables (smaller code)
 * Display name of Operating System next to Version. For example. "Version OS X 10.9 - Mavericks"
+* Update screenshots
 
 Credit
 ------
