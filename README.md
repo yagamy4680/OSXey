@@ -46,6 +46,8 @@ Recent Changes
 
 * Better way to install (don't dump straight into /bin , maybe install script?)
 * Truncate long hostnames that are > 35 characters long.
+* Display name of Operating System next to Version. For example. "Version OS X 10.9 - Mavericks"
+* (Works for Bash 4. Still working on Bash 3.2 solution)
 
 To-Do List
 ------------

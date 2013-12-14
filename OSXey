@@ -13,7 +13,6 @@ terminal="$TERM"
 cpu=$(sysctl -n machdep.cpu.brand_string)
 
 # removes (R) and (TM) from the CPU name so it fits in a standard 80 window
-
 cpu=$(echo "$cpu" | awk '$1=$1' | sed 's/([A-Z]\{1,2\})//g')
 
 # if hostname is >35 characters, truncates to make it fit on std. 80 window
@@ -21,6 +20,26 @@ if [ ${#hostname} > 35 ]; then
    hostname=${hostname:0:35}
    # hostname=${hostname:(-35)} truncate from end/beginning
 fi
+
+# Finds the version number - for example, 10.9 = Mavericks
+# Bash 4 solution. However, I believe OS X default Bash version is 3.2
+<<'long_comment'
+vernumber=$(sw_vers -productVersion)
+declare -A ARRAY
+ARRAY=( [10.0]=Cheetah
+        [10.1]=Puma
+	[10.2]=Jaguar
+	[10.3]=Panther
+	[10.4]=Tiger
+	[10.5]=Leopard
+	[10.6]=Snow\ Leopard
+	[10.7]=Lion
+	[10.8]=Mountain\ Lion
+	[10.9]=Mavericks )
+# test=$(ARRAY[0])
+bb=${ARRAY[$vernumber]}
+echo $bb 
+long_comment
 
 mem=$(sysctl -n hw.memsize)
 ram="$((mem/1000000000)) GB"
