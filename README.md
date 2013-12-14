@@ -11,7 +11,7 @@ Installation
 ------------
 Preferred method: use `install.sh` to both install and uninstall.
 
-Manual method: (depending if you want to install to /bin/ or /usr/local/bin/)A
+Manual method: (depending if you want to install to /bin/ or /usr/local/bin/)
 
     $ git clone git@github.com:jasonkliu/OSXey.git
     $ cd OSXey/
@@ -41,10 +41,15 @@ Change the value of the variable packagehandler, to change the package handler. 
 
 	packagehandler=$macportpackages
 
+Recent Changes
+--------------
+
+* Better way to install (don't dump straight into /bin , maybe install script?)
+* Truncate long hostnames that are > 35 characters long.
+
 To-Do List
 ------------
 
-* Better way to install (don't dump straight into /bin , maybe install script?) `done`
 * Better way of choosing package manager (maybe as option rather then config?) 
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
 * Look into logo allignment in code (match what is dispalyed)
