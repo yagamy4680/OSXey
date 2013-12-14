@@ -48,4 +48,4 @@ To-Do List
 Credit
 ------
 Credit to the original developer of Archey, [djmelik](https://github.com/djmelik/archey).
-And to [joshfinnie](https://github.com/joshfinnie/archey-osx) which this is forked from. To [benjaminwhite](https://github.com/benjaminwhite/OSXey) for his awesome Apple Logo art.
+And to [Gary00](https://github.com/Gary00/OSXey) which this is forked from. To [benjaminwhite](https://github.com/benjaminwhite/OSXey) for his awesome Apple Logo art.
