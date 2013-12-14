@@ -3,8 +3,8 @@ OSXey
 
 A script for OS X to display system info
 
-!['Screenshot'](https://raw.github.com/Gary00/OSXey/master/screenshot_normal.png)
 !['Screenshot'](https://raw.github.com/Gary00/OSXey/master/screenshot_color.png)
+!['Screenshot'](https://raw.github.com/Gary00/OSXey/master/screenshot_normal.png)
 
 
 Installation
@@ -46,8 +46,7 @@ Recent Changes
 
 * Better way to install (don't dump straight into /bin , maybe install script?)
 * Truncate long hostnames that are > 35 characters long.
-* Display name of Operating System next to Version. For example. "Version OS X 10.9 - Mavericks"
-* (Works for Bash 4. Still working on Bash 3.2 solution)
+* Display name of Operating System next to Version. For example. "Version OS X 10.9 - Mavericks" (Bash 3 & Bash 4)
 
 To-Do List
 ------------
@@ -56,7 +55,6 @@ To-Do List
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
 * Look into logo allignment in code (match what is dispalyed)
 * Loop for assigning color variables (smaller code)
-* Display name of Operating System next to Version. For example. "Version OS X 10.9 - Mavericks"
 * Update screenshots
 
 Credit
