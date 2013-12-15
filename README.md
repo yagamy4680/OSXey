@@ -15,7 +15,7 @@ Manual method: (depending if you want to install to /bin/ or /usr/local/bin/)
 
     $ git clone git@github.com:jasonkliu/OSXey.git
     $ cd OSXey/
-    $ sudo cp OSXey /bin/
+    $ sudo cp OSXey /bin/OSXey
     $ sudo chmod +x /bin/OSXey 
 
     $ sudo cp OSXey /usr/local/bin/
