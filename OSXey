@@ -16,7 +16,8 @@ cpu=$(sysctl -n machdep.cpu.brand_string)
 cpu=$(echo "$cpu" | awk '$1=$1' | sed 's/([A-Z]\{1,2\})//g')
 
 # if hostname is >35 characters, truncates to make it fit on std. 80 window
-if [ ${#hostname} > 35 ]; then
+if [ ${#hostname} -gt 35 ]
+then
    hostname=${hostname:0:35}
    # hostname=${hostname:(-35)} truncate from end/beginning
 fi
