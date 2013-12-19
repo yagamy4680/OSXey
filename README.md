@@ -42,8 +42,10 @@ Recent Changes
 To-Do List
 ------------
 
-* Better way of choosing package manager (maybe as option rather then config?) 
+* Better way of choosing package manager (automatic would be best) 
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
 * Look into logo allignment in code (match what is dispalyed)
-* Code Cleanup
+* Code cleanup
 * Update screenshots
+* Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
+* Look into being able to install via package manager (homebrew / macports)
