@@ -1,48 +1,42 @@
 #!/bin/bash
-# This script will: Install OSXey to /bin/ or /usr/local/bin/
+#Script for installing/uninstalling OSXey
 
-orig="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
+#List of options
 echo ""
-echo "Ready to install OSXey. Use -c for colors!"
-echo "Your Bash version is: $BASH_VERSION"
-echo "1. Install OSXey to /bin/ && /usr/local/bin"
-echo "2. Install OSXey to /bin/"
-echo "3. Install OSXey to /usr/local/bin"
-echo "4. Uninstall OSXey"
-read a
+echo "Please choose an option:"
+echo "1. Install OSXey to /usr/local/bin"
+echo "2. Uninstall OSXey"
+echo -n "Option: "
+read answer
 echo ""
 
-if [ $a == 1 ]
+#If statements based on asnwer
+if [ $answer == 1 ]
 then
-   sudo cp OSXey /bin/OSXey
-   sudo chmod +x /bin/OSXey
+
+   #copy script
    sudo cp OSXey /usr/local/bin/
    sudo chmod +x /usr/local/bin/OSXey
+   
+   #display message
+   tput setaf 2
+   echo "Installed Sucessfully"
+   tput sgr0
 
-elif [ $a == 2 ]
+elif [ $answer == 2 ]
 then
-   sudo cp OSXey /bin/OSXey
-   sudo chmod +x /bin/OSXey
-elif [ $a == 3 ]
-then
-   sudo cp OSXey /usr/local/bin/
-   sudo chmod +x /usr/local/bin/OSXey
 
-elif [ $a == 4 ]
-then
-   cd /bin/
-   sudo rm -r OSXey
-   cd /usr/local/bin
-   sudo rm OSXey
+   #remove script  
+   sudo rm -f /usr/local/bin/OSXey
 
+   #display message
+   tput setaf 2
+   echo "Uninstalled Sucessfully"
+   tput sgr0
+   
 else
    echo "Command not supported."
    exit
 fi
 
-echo ""
-OSXey -c
-
-cd "$orig"
 exit
