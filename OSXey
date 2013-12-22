@@ -1,63 +1,66 @@
 #!/bin/bash
 
-# System Variables
+# ==USER==
 user=$(whoami)
+
+# ==HOSTNAME==
 hostname=$(hostname | sed 's/.local//g')
-# version="OS X $(sw_vers -productVersion)" See below for updated version
-kernel="XNU"
-uptime=$(uptime | sed 's/.*up \([^,]*\), .*/\1/')
-shell="$SHELL"
-terminal="$TERM"
-#brewpackages="`brew list -l | wc -l | awk '{print $1 }'`"
-#macportpackages="`port installed | wc -l | awk '{print $1 }'`"
-cpu=$(sysctl -n machdep.cpu.brand_string)
-
-# removes (R) and (TM) from the CPU name so it fits in a standard 80 window
-cpu=$(echo "$cpu" | awk '$1=$1' | sed 's/([A-Z]\{1,2\})//g')
-
 # if hostname is >35 characters, truncates to make it fit on std. 80 window
 if [ ${#hostname} -gt 35 ]
 then
    hostname=${hostname:0:35}
-   # hostname=${hostname:(-35)} truncate from end/beginning
 fi
 
-# Finds the version number - e.g. 10.9 = Mavericks
-# Bash 4 solution. However, I believe OS X has Bash 3.2 as default
-<<'long_comment'
-vernumber=$(sw_vers -productVersion)
-declare -A ARRAY
-ARRAY=( [10.0]=Cheetah
-        [10.1]=Puma
-	[10.2]=Jaguar
-	[10.3]=Panther
-	[10.4]=Tiger
-	[10.5]=Leopard
-	[10.6]=Snow\ Leopard
-	[10.7]=Lion
-	[10.8]=Mountain\ Lion
-	[10.9]=Mavericks )
-# test=$(ARRAY[0])
-bb=${ARRAY[$vernumber]}
-echo $bb 
-long_comment
+# ==VERSION==
+versionNumber=$(sw_vers -productVersion) # Finds version number
 
-# Finds the version number - for example, 10.9 = Mavericks
-# Bash 3 solution. Bash version on my 10.9 install is 3.2
-vernumber=$(sw_vers -productVersion)
-versingle=$(echo "$vernumber * 10 - 100" | bc) # converts 10.9 > 9.0
-verint=${versingle%.*} # converts 9.0 => 9
+versionCalculation=${versionNumber:0:4}  # Cut sting to 1 decimal place for calculation
+versionDecimal=$(echo "$versionCalculation * 10 - 100" | bc) # converts 10.9 > 9.0
+versionInt=${versionDecimal%.*} # converts 9.0 => 9
 
-declare -a ARRAY2
-ARRAY2=( Cheetah Puma Jaguar Panther Tiger Leopard 
+declare -a versionsArray
+versionsArray=( Cheetah Puma Jaguar Panther Tiger Leopard 
          Snow\ Leopard Lion Mountain\ Lion Mavericks )
-cat=${ARRAY2[verint]}
+		 
+versionName=${versionsArray[versionInt]}
 
-version="OS X $vernumber $cat" 
+version="OS X $versionNumber $versionName"
 
-# Memory
+# ==KERNEL==
+kernel="XNU"
+
+# ==UPTIME==
+uptime=$(uptime | sed 's/.*up \([^,]*\), .*/\1/')
+
+# ==SHELL==
+shell="$SHELL"
+
+# ==TERMINAL==
+terminal="$TERM"
+
+# ==PACKAGE MANAGER==
+
+# check if brew or macports is installed, then total there packages and set packagehandler 
+if [ -e /usr/local/bin/brew ]
+then
+	brewpackages=$(brew list -l | tail --lines +2 | wc -l)
+	packagehandler=$brewpackages
+elif [ -f /opt/local/bin/port ] #don't think this is the right directory, need to check later.
+then 
+	macportpackages="`port installed | wc -l | awk '{print $1 }'`"
+	packagehandler=$macportpackages
+fi
+
+# ==CPU==
+cpu=$(sysctl -n machdep.cpu.brand_string)
+# removes (R) and (TM) from the CPU name so it fits in a standard 80 window
+cpu=$(echo "$cpu" | awk '$1=$1' | sed 's/([A-Z]\{1,2\})//g')
+ 
+# ==MEMORY==
 mem=$(sysctl -n hw.memsize)
-ram="$((mem/1000000000)) GB"
+mem="$((mem/1000000000)) GB"
+
+# ==DISK==
 disk=`df | head -2 | tail -1 | awk '{print $5}'`
 
 # Colors Variables
@@ -71,9 +74,6 @@ grey="7"
 
 textColor=$(tput setaf $lightblue)
 normal=$(tput sgr0)
-
-# Package Manager (Homebrew or Macports)
-packagehandler=$macportpackages
 
 # Add a -c option to enable classic color logo
 if [[ $1 == "-c" ]] || [[ $1 == "--color" ]]; then
@@ -111,7 +111,7 @@ ${YELLOW}    #####################         $shellText $shell
 ${LRED}    #####################         $terminalText $terminal
 ${RED}    ######################,       $packagehandlerText $packagehandler
 ${RED}     #######################      $cpuText $cpu
-${PURPLE}      ####################\"       $memoryText $ram
+${PURPLE}      ####################\"       $memoryText $mem
 ${BLUE}        #################'        $diskText $disk
 ${BLUE}         \"####\"\"\"\"####\" ${normal}
 
