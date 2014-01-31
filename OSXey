@@ -14,17 +14,42 @@ fi
 # ==VERSION==
 versionNumber=$(sw_vers -productVersion) # Finds version number
 
-versionCalculation=${versionNumber:0:4}  # Cut sting to 1 decimal place for calculation
-versionDecimal=$(echo "$versionCalculation * 10 - 100" | bc) # converts 10.9 > 9.0
-versionInt=${versionDecimal%.*} # converts 9.0 => 9
-
-declare -a versionsArray
-versionsArray=( Cheetah Puma Jaguar Panther Tiger Leopard 
-         Snow\ Leopard Lion Mountain\ Lion Mavericks )
+versionShort=${versionNumber:0:4}  # Cut sting to 1 decimal place for calculation
 		 
-versionName=${versionsArray[versionInt]}
-
-version="OS X $versionNumber $versionName"
+case $versionShort in
+	10.9)
+		versionString="Mavericks"
+		;;
+	10.8)
+		versionString="Mountian Lion"
+		;;
+	10.7)
+		versionString="Lion"
+		;;
+	10.6)
+		versionString="Snow Leopard"
+		;;
+	10.5)
+		versionString="Leopard"
+		;;
+	10.4)
+		versionString="Tiger"
+		;;
+	10.3)
+		versionString="Panther"
+		;;
+	10.2)
+		versionString="Jaguar"
+		;;
+	10.1)
+		versionString="Puma"
+		;;
+	10.0)
+		versionString="Cheetah"
+		;;
+esac
+	
+version="OS X $versionNumber $versionString"
 
 # ==KERNEL==
 kernel="XNU"
