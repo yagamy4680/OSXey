@@ -4,11 +4,11 @@
 user=$(whoami)
 
 # ==HOSTNAME==
-hostname=$(hostname | sed 's/.local//g')
+hostname=$(HOSTNAME | sed 's/.local//g')
 # if hostname is >35 characters, truncates to make it fit on std. 80 window
-if [ ${#hostname} -gt 35 ]
+if [ ${#HOSTNAME} -gt 35 ]
 then
-   hostname=${hostname:0:35}
+   hostname=${HOSTNAME:0:35}
 fi
 
 # ==VERSION==

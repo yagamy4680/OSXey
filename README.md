@@ -26,11 +26,6 @@ Change the value of the variable color, to change the color text. The options li
 
 	color=$(tput setaf $lightblue)
 
-Change the value of the variable packagehandler, to change the package handler. The options are listed under # Variables
-
-	packagehandler=$macportpackages
-
-
 Recent Changes
 --------------
 
@@ -42,10 +37,10 @@ Recent Changes
 To-Do List
 ------------
 
-* Better way of choosing package manager (automatic would be best) 
+* Test Package Manager with macports
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
 * Look into logo allignment in code (match what is dispalyed)
 * Code cleanup
-* Update screenshots
 * Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
 * Look into being able to install via package manager (homebrew / macports)
+* Look up model identifier (e.g imac,12,2) and note which mac is in use
