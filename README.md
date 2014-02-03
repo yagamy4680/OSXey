@@ -43,6 +43,7 @@ Bug Fixes / Optimization
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method
 * Code cleanup
 * Update Screenshots
+* Fix uptime alignment bug
 
 Features
 * Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
