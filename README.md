@@ -29,18 +29,21 @@ Change the value of the variable color, to change the color text. The options li
 Recent Changes
 --------------
 
-* Added install script.
-* Now truncates long hostnames that are > 35 characters.
-* Now displays names of Operating System next to version. For example, "Version: OS X 10.9 Mavericks" (Bash 3 & Bash 4)
+* (Optimization) Removed Escape Characters from ASCII art
+* (Optimization) Renamed color variables to all be same length - helps when echoing
+* (Optimzation) Aligned ASCII art / text in echo statement
+* (Addition) Added model field to display Mac Model ID
 
 
 To-Do List
 ------------
 
+-Bug Fixes / Optimization
 * Test Package Manager with macports
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
-* Look into logo allignment in code (match what is dispalyed)
 * Code cleanup
+
+-Features
 * Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
 * Look into being able to install via package manager (homebrew / macports)
-* Look up model identifier (e.g imac,12,2) and note which mac is in use
+* Display more precise model details (e.g. iMac 27-inch, Late 2012)
