@@ -38,12 +38,13 @@ Recent Changes
 To-Do List
 ------------
 
--Bug Fixes / Optimization
+Bug Fixes / Optimization
 * Test Package Manager with macports
-* Look into $terminalText bug. Maybe find a better way of displaying colors then current method.
+* Look into $terminalText bug. Maybe find a better way of displaying colors then current method
 * Code cleanup
+* Update Screenshots
 
--Features
+Features
 * Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
 * Look into being able to install via package manager (homebrew / macports)
 * Display more precise model details (e.g. iMac 27-inch, Late 2012)
