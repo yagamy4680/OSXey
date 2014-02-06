@@ -104,16 +104,31 @@ grey="7"
 textColor=$(tput setaf $lightblue)
 normal=$(tput sgr0)
 
-# Add a -c option to enable classic color logo
-if [[ $1 == "-c" ]] || [[ $1 == "--color" ]]; then
-  GR='\033[00;32m'	#Green
-  YE='\033[00;33m'	#Yello
-  LR='\033[01;31m'	#Light Red
-  RE='\033[00;31m'	#Red
-  PU='\033[00;35m'	#Purple
-  CY='\033[00;36m'	#Cyan
-  BL='\033[00;34m'	#Blu
-fi
+# While loops for script arguments
+while [ $# -gt 0 ]
+do
+	case "$1" in
+
+    -c|--color) 
+			GR='\033[00;32m'
+			YE='\033[00;33m'
+			LR='\033[01;31m'
+			RE='\033[00;31m'
+			PU='\033[00;35m'
+			CY='\033[00;36m'
+			BL='\033[00;34m'
+    	    shift
+            ;;
+	-red)
+			textColor=$(tput setaf $red)
+			shift
+			;;
+	*)
+			break
+			;;
+	esac
+done
+
 
 userText="${textColor}User:${normal}"
 hostnameText="${textColor}Hostname:${normal}"
