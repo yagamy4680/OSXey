@@ -123,6 +123,26 @@ do
 			textColor=$(tput setaf $red)
 			shift
 			;;
+	-green)
+			textColor=$(tput setaf $green)
+			shift
+			;;
+	-yellow)
+			textColor=$(tput setaf $yellow)
+			shift
+			;;
+	-blue)
+			textColor=$(tput setaf $blue)
+			shift
+			;;
+	-purple)
+			textColor=$(tput setaf $purple)
+			shift
+			;;
+	-grey)
+			textColor=$(tput setaf $grey)
+			shift
+			;;
 	*)
 			break
 			;;
