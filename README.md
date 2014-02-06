@@ -15,20 +15,30 @@ Use 'install.sh` to both install and uninstall.
 Options
 ------------
 	-c,  --color
-		Color Logo	
-
-
-Configuration
-------------
- 	$ sudo nano /usr/local/bin/OSXey
-
-Change the value of the variable color, to change the color text. The options listed under #Colors
-
-	color=$(tput setaf $lightblue)
+		Color Logo
+		
+	-red
+		Red Text
+		
+	-green
+		Green Text
+	
+	-yellow
+		Yellow Text
+		
+	-blue
+		Blue Text
+		
+	-purple
+		Purple Text
+		
+	-grey
+		Grey Text
 
 Recent Changes
 --------------
 
+* (Addtion) Options for changing text color
 * (Optimization) Removed Escape Characters from ASCII art
 * (Optimization) Renamed color variables to all be same length - helps when echoing
 * (Optimzation) Aligned ASCII art / text in echo statement
@@ -44,6 +54,7 @@ Bug Fixes / Optimization
 * Code cleanup
 * Update Screenshots
 * Fix uptime alignment bug
+* Better way of changing text color (use ""-text blue"" or "-text red" rather then "-red" or "-blue")
 
 Features
 * Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
