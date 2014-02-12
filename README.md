@@ -1,4 +1,4 @@
-OSXey
+GOSXey
 ===============
 
 A script for OS X to display system information
@@ -60,3 +60,5 @@ Features
 * Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
 * Look into being able to install via package manager (homebrew / macports)
 * Display more precise model details (e.g. iMac 27-inch, Late 2012)
+* Display Graphics Card Model (system_profiler SPDisplaysDataType)
+* Display Total Hard Drive Space on Disk (currently shows only a percentage)
