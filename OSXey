@@ -12,7 +12,7 @@ then
 fi
 
 # ==MODEL==
-model=$(ioreg -l | awk '/product-name/ { split($0, line, "\""); printf("%s\n", line[4]); }')
+model=$(system_profiler SPHardwareDataType -detailLevel mini | awk '/Model Identifier/ { print $3 }')
 
 
 # ==VERSION==
