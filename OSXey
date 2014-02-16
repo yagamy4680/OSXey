@@ -12,7 +12,7 @@ then
 fi
 
 # ==MODEL==
-model=$(uname -i)
+model=$(ioreg -l | awk '/product-name/ { split($0, line, "\""); printf("%s\n", line[4]); }')
 
 
 # ==VERSION==
