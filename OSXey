@@ -12,7 +12,7 @@ then
 fi
 
 # ==MODEL==
-model=$(uname -i)
+model=$(system_profiler SPHardwareDataType -detailLevel mini | awk '/Model Identifier/ { print $3 }')
 
 
 # ==VERSION==
