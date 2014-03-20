@@ -43,6 +43,7 @@ Recent Changes
 * (Optimization) Renamed color variables to all be same length - helps when echoing
 * (Optimzation) Aligned ASCII art / text in echo statement
 * (Addition) Added model field to display Mac Model ID
+* (Features) Display more precise model details (e.g. iMac 27-inch, Late 2012)
 
 
 To-Do List
@@ -59,6 +60,5 @@ Bug Fixes / Optimization
 Features
 * Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
 * Look into being able to install via package manager (homebrew / macports)
-* Display more precise model details (e.g. iMac 27-inch, Late 2012)
 * Display Graphics Card Model (system_profiler SPDisplaysDataType)
 * Display Total Hard Drive Space on Disk (currently shows only a percentage)
