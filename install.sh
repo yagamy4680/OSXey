@@ -5,7 +5,7 @@
 echo ""
 echo "Please choose an option:"
 echo "1. Install OSXey to /usr/local/bin"
-echo "2. Uninstall OSXey"
+echo "2. Uninstall OSXey from /usr/local/bin"
 echo -n "Option: "
 read answer
 echo ""

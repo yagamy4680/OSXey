@@ -4,27 +4,56 @@
 user=$(whoami)
 
 # ==HOSTNAME==
-hostname=$(hostname | sed 's/.local//g')
+hostname=$(HOSTNAME | sed 's/.local//g')
 # if hostname is >35 characters, truncates to make it fit on std. 80 window
-if [ ${#hostname} -gt 35 ]
+if [ ${#HOSTNAME} -gt 35 ]
 then
-   hostname=${hostname:0:35}
+   hostname=${HOSTNAME:0:35}
 fi
+
+# ==MODEL==
+model=$(system_profiler SPHardwareDataType -detailLevel mini | awk '/Model Identifier/ { print $3 }')
+
 
 # ==VERSION==
 versionNumber=$(sw_vers -productVersion) # Finds version number
 
-versionCalculation=${versionNumber:0:4}  # Cut sting to 1 decimal place for calculation
-versionDecimal=$(echo "$versionCalculation * 10 - 100" | bc) # converts 10.9 > 9.0
-versionInt=${versionDecimal%.*} # converts 9.0 => 9
-
-declare -a versionsArray
-versionsArray=( Cheetah Puma Jaguar Panther Tiger Leopard 
-         Snow\ Leopard Lion Mountain\ Lion Mavericks )
+versionShort=${versionNumber:0:4}  # Cut sting to 1 decimal place for calculation
 		 
-versionName=${versionsArray[versionInt]}
-
-version="OS X $versionNumber $versionName"
+case $versionShort in
+	10.9)
+		versionString="Mavericks"
+		;;
+	10.8)
+		versionString="Mountian Lion"
+		;;
+	10.7)
+		versionString="Lion"
+		;;
+	10.6)
+		versionString="Snow Leopard"
+		;;
+	10.5)
+		versionString="Leopard"
+		;;
+	10.4)
+		versionString="Tiger"
+		;;
+	10.3)
+		versionString="Panther"
+		;;
+	10.2)
+		versionString="Jaguar"
+		;;
+	10.1)
+		versionString="Puma"
+		;;
+	10.0)
+		versionString="Cheetah"
+		;;
+esac
+	
+version="OS X $versionNumber $versionString"
 
 # ==KERNEL==
 kernel="XNU"
@@ -75,24 +104,60 @@ grey="7"
 textColor=$(tput setaf $lightblue)
 normal=$(tput sgr0)
 
-# Add a -c option to enable classic color logo
-if [[ $1 == "-c" ]] || [[ $1 == "--color" ]]; then
-  GREEN='\033[00;32m'
-  YELLOW='\033[00;33m'
-  LRED='\033[01;31m'
-  RED='\033[00;31m'
-  PURPLE='\033[00;35m'
-  CYAN='\033[00;36m'
-  BLUE='\033[00;34m'
-fi
+# While loops for script arguments
+while [ $# -gt 0 ]
+do
+	case "$1" in
+
+    -c|--color) 
+			GR='\033[00;32m'
+			YE='\033[00;33m'
+			LR='\033[01;31m'
+			RE='\033[00;31m'
+			PU='\033[00;35m'
+			CY='\033[00;36m'
+			BL='\033[00;34m'
+    	    shift
+            ;;
+	-red)
+			textColor=$(tput setaf $red)
+			shift
+			;;
+	-green)
+			textColor=$(tput setaf $green)
+			shift
+			;;
+	-yellow)
+			textColor=$(tput setaf $yellow)
+			shift
+			;;
+	-blue)
+			textColor=$(tput setaf $blue)
+			shift
+			;;
+	-purple)
+			textColor=$(tput setaf $purple)
+			shift
+			;;
+	-grey)
+			textColor=$(tput setaf $grey)
+			shift
+			;;
+	*)
+			break
+			;;
+	esac
+done
+
 
 userText="${textColor}User:${normal}"
 hostnameText="${textColor}Hostname:${normal}"
+modelText="${textColor}Model:${normal}"
 versionText="${textColor}Version:${normal}"
 kernelText="${textColor}Kernel:${normal}"
 uptimeText="${textColor}Uptime:${normal}"
-shellText="${textColor}Shell:${normal}"
-terminalText="${BLUE}${textColor}Terminal:${normal}"
+shellText="${BL}${textColor}Shell:${normal}"
+terminalText="${textColor}Terminal:${normal}"
 packagehandlerText="${textColor}Packages:${normal}"
 cpuText="${textColor}CPU:${normal}"
 memoryText="${textColor}Memory:${normal}"
@@ -100,19 +165,19 @@ diskText="${textColor}Disk:${normal}"
 
 echo -e "
 
-${GREEN}                     ,
-${GREEN}                  ,##; 
-${GREEN}                 ####             $userText $user
-${GREEN}                ;#\"               $hostnameText $hostname
-${GREEN}       ,#####;,   ,;#####;,       $versionText $version
-${GREEN}     ######################\"      $kernelText $kernel
-${YELLOW}    #####################\"        $uptimeText $uptime
-${YELLOW}    #####################         $shellText $shell
-${LRED}    #####################         $terminalText $terminal
-${RED}    ######################,       $packagehandlerText $packagehandler
-${RED}     #######################      $cpuText $cpu
-${PURPLE}      ####################\"       $memoryText $mem
-${BLUE}        #################'        $diskText $disk
-${BLUE}         \"####\"\"\"\"####\" ${normal}
-
+${GR}                     ,
+${GR}                  ,##;            
+${GR}                 ####             $userText $user
+${GR}                ;#'               $hostnameText $hostname
+${GR}       ,#####;,   ,;#####;,       $modelText $model
+${GR}     ######################'      $versionText $version
+${YE}    #####################'        $kernelText $kernel
+${YE}    #####################         $uptimeText $uptime
+${LR}    #####################         $shellText $shell
+${RE}    ######################,       $terminalText $terminal
+${RE}     #######################      $packagehandlerText $packagehandler
+${PU}      ####################'       $cpuText $cpu
+${BL}        #################'        $memoryText $mem
+${BL}         '####''''####'           $diskText $disk
+                                       ${normal}
 "
