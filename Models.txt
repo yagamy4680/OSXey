@@ -1,5 +1,11 @@
 # Identification of Mac models by name. Generated from the 
 # apple.com website by https://github.com/jasonkliu
+# Note: Mac mini models do not follow the same convention
+# (at least from http://support.apple.com/kb/ht3476)
+# Note: Apple part numbers such as MA356LL/A may be incorrect
+# or missing as the Model Identifier Mac Pro (Early 2008) is 
+# used as the index for the values. Use the following command:
+# modelname=`grep $model Models.txt | sed -e 's/).*/)/g'`
 
 # How to identify MacBook Pro models
 # Taken from http://support.apple.com/kb/ht4132
@@ -52,8 +58,7 @@ MacBook Air (11-inch, Mid 2012)	MacBookAir5,1
 MacBook Air (13-inch, Mid 2011)	MacBookAir4,2	
 MacBook Air (11-inch, Mid 2011)	MacBookAir4,1	
 MacBook Air (13-inch, Late 2010)	MacBookAir3,2	
-# Typo here suggests spacing above is accidental
-MacBook AIr (11-Inch, Late 2010)	MacBookAir3,1 	
+MacBook Air (11-inch, Late 2010)	MacBookAir3,1 	
 MacBook Air (13-inch, Mid 2009/Late 2008)	MacBookAir2,1	
 MacBook Air (13-inch, Early 2008)	MacBookAir1,1	
 
@@ -61,7 +66,6 @@ MacBook Air (13-inch, Early 2008)	MacBookAir1,1
 
 # How to identify iMac models
 # Taken from http://support.apple.com/kb/ht1758
-# Possible conflict: some models (such as 20 and 24 inch) have same code
 iMac (21.5-inch, Late 2013)	 iMac14,1	ME086XX/A
 iMac (27-inch, Late 2013)	 iMac14,2	ME088XX/A
 iMac (21.5-inch, Late 2012)	 iMac13,1	MD093XX/A
@@ -77,7 +81,16 @@ iMac (20-inch/24-inch, Early 2008)	 iMac8,1	MB323XX/A
 iMac (20-inch/24-inch, Mid 2007)	iMac7,1	MA876XX/A
 iMac (17-inch/20-inch, Late 2006)	iMac5,1	MA589xx/A
 iMac (17-inch Late 2006 CD)	iMac5,2	MA710xx/A
-17-inch iMac (Mid 2006), 1.83 GHz Intel Core Duo	iMac4,2	MA406xx/A
-20-inch iMac (Early 2006), 2.0 GHz Intel Core Duo	iMac4,1	MA200xx/A
-17-inch iMac (Early 2006), 1.83 GHz Intel Core Duo	iMac4,1	MA199xx/A
+iMac (17-inch, Mid 2006)	iMac4,2	MA406xx/A
+iMac (17-inch/20-inch, Early 2006)	iMac4,1	MA200xx/A
+
+# How to identify Mac Pro models
+# Taken from http://support.apple.com/kb/HT6069
+
+Mac Pro (Late 2013)	        MacPro6,1	ME253LL/A
+Mac Pro (Mid 2012/Mid 2010)	MacPro5,1	MD771LL/A
+Mac Pro (Early 2009)	    MacPro4,1	MB871LL/A 
+Mac Pro (Early 2008)	    MacPro3,1	MA970LL/A
+Mac Pro (8-core)	        MacPro2,1	MA1186/A
+Mac Pro	(original)          MacPro1,1	MA356LL/A
 
