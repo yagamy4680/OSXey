@@ -44,6 +44,7 @@ Recent Changes
 * (Optimzation) Aligned ASCII art / text in echo statement
 * (Addition) Added model field to display Mac Model ID
 * (Features) Display more precise model details (e.g. iMac 27-inch, Late 2012)
+* (Features) Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
 
 
 To-Do List
@@ -58,7 +59,6 @@ Bug Fixes / Optimization
 * Better way of changing text color (use ""-text blue"" or "-text red" rather then "-red" or "-blue")
 
 Features
-* Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
 * Look into being able to install via package manager (homebrew / macports)
 * Display Graphics Card Model (system_profiler SPDisplaysDataType)
 * Display Total Hard Drive Space on Disk (currently shows only a percentage)

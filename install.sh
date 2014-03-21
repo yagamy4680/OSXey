@@ -14,6 +14,13 @@ echo ""
 if [ $answer == 1 ]
 then
 
+   #create directory if it doesn't exist
+   if [ ! -d "/usr/local/bin/" ]
+   then
+      echo "Creating /usr/local/bin/"
+      mkdir -pv -m 755 /usr/local/bin/
+   fi
+
    #copy script
    sudo cp OSXey Models.txt /usr/local/bin/
    sudo chmod +x /usr/local/bin/OSXey
