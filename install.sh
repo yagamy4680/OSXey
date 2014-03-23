@@ -14,8 +14,15 @@ echo ""
 if [ $answer == 1 ]
 then
 
+   #create directory if it doesn't exist
+   if [ ! -d "/usr/local/bin/" ]
+   then
+      echo "Creating /usr/local/bin/"
+      mkdir -pv -m 755 /usr/local/bin/
+   fi
+
    #copy script
-   sudo cp OSXey /usr/local/bin/
+   sudo cp OSXey Models.txt /usr/local/bin/
    sudo chmod +x /usr/local/bin/OSXey
    
    #display message
@@ -27,7 +34,7 @@ elif [ $answer == 2 ]
 then
 
    #remove script  
-   sudo rm -f /usr/local/bin/OSXey
+   sudo rm -f /usr/local/bin/OSXey /usr/local/bin/Models.txt
 
    #display message
    tput setaf 2

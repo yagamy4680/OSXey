@@ -13,7 +13,8 @@ fi
 
 # ==MODEL==
 model=$(system_profiler SPHardwareDataType -detailLevel mini | awk '/Model Identifier/ { print $3 }')
-
+# use grep to find the model in the list, then delete from ) to end of line
+modelname=`grep $model Models.txt | sed -e 's/).*/)/g'`
 
 # ==VERSION==
 versionNumber=$(sw_vers -productVersion) # Finds version number
@@ -169,7 +170,7 @@ ${GR}                     ,
 ${GR}                  ,##;            
 ${GR}                 ####             $userText $user
 ${GR}                ;#'               $hostnameText $hostname
-${GR}       ,#####;,   ,;#####;,       $modelText $model
+${GR}       ,#####;,   ,;#####;,       $modelText $modelname
 ${GR}     ######################'      $versionText $version
 ${YE}    #####################'        $kernelText $kernel
 ${YE}    #####################         $uptimeText $uptime
