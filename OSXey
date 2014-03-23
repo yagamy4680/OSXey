@@ -91,7 +91,11 @@ mem=$(sysctl -n hw.memsize)
 mem="$((mem/1000000000)) GB"
 
 # ==DISK==
-disk=`df | head -2 | tail -1 | awk '{print $5}'`
+disk=`df -Hl | head -2 | tail -1` 
+dpercent=`echo $disk | awk '{print $5}'`
+dfree=`echo $disk | awk '{print $4}'`
+dused=`echo $disk | awk '{print $3}'`
+dcapacity=`echo $disk | awk '{print $2}'`
 
 # Colors Variables
 red="1"
@@ -179,6 +183,6 @@ ${RE}    ######################,       $terminalText $terminal
 ${RE}     #######################      $packagehandlerText $packagehandler
 ${PU}      ####################'       $cpuText $cpu
 ${BL}        #################'        $memoryText $mem
-${BL}         '####''''####'           $diskText $disk
+${BL}         '####''''####'           $diskText $dused / $dcapacity, $dpercent
                                        ${normal}
 "
