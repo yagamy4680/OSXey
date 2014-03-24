@@ -29,8 +29,8 @@ awk '/Model/{for (i=1; i<=NF-3; i++) $i = $(i+3); NF-=3; print}' | paste -sd "/"
 # Use awk with a loop to print the arguments after Model: to end of line
 # Use paste to join multiple lines together with a slash if necessary.
 # Sample output: 
-# graphics: Intel HD Graphics/NVIDIA GeForce GT 330M
-# graphicsnoBrand: HD Graphics/GeForce GT 330M
+# > graphics:        Intel HD Graphics/NVIDIA GeForce GT 330M
+# > graphicsnoBrand: HD Graphics/GeForce GT 330M
 
 # ==VERSION==
 versionNumber=$(sw_vers -productVersion) # Finds version number
