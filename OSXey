@@ -16,6 +16,22 @@ model=$(system_profiler SPHardwareDataType -detailLevel mini | awk '/Model Ident
 # use grep to find the model in the list, then delete from ) to end of line
 modelname=`grep $model Models.txt | sed -e 's/).*/)/g'`
 
+# ==GRAPHICS==
+graphics=$(system_profiler SPDisplaysDataType |
+awk '/Model/{for (i=1; i<=NF-2; i++) $i = $(i+2); NF-=2; print}' | paste -sd "/" -)
+
+graphicsnoBrand=$(system_profiler SPDisplaysDataType |
+awk '/Model/{for (i=1; i<=NF-3; i++) $i = $(i+3); NF-=3; print}' | paste -sd "/" -)
+# Use system_profiler to find graphics cards, then awk to find 'Model'
+# Output of this step is lines such as this:
+# > Chipset Model: Intel HD Graphics
+# > Chipset Model: NVIDIA GeForce GT 330M
+# Use awk with a loop to print the arguments after Model: to end of line
+# Use paste to join multiple lines together with a slash if necessary.
+# Sample output: 
+# > graphics:        Intel HD Graphics/NVIDIA GeForce GT 330M
+# > graphicsnoBrand: HD Graphics/GeForce GT 330M
+
 # ==VERSION==
 versionNumber=$(sw_vers -productVersion) # Finds version number
 
@@ -91,7 +107,11 @@ mem=$(sysctl -n hw.memsize)
 mem="$((mem/1000000000)) GB"
 
 # ==DISK==
-disk=`df | head -2 | tail -1 | awk '{print $5}'`
+disk=`df -Hl | head -2 | tail -1` 
+dpercent=`echo $disk | awk '{print $5}'`
+dfree=`echo $disk | awk '{print $4}'`
+dused=`echo $disk | awk '{print $3}'`
+dcapacity=`echo $disk | awk '{print $2}'`
 
 # Colors Variables
 red="1"
@@ -162,23 +182,25 @@ terminalText="${textColor}Terminal:${normal}"
 packagehandlerText="${textColor}Packages:${normal}"
 cpuText="${textColor}CPU:${normal}"
 memoryText="${textColor}Memory:${normal}"
+graphicsText="${textColor}Graphics:$normal"
 diskText="${textColor}Disk:${normal}"
 
 echo -e "
 
 ${GR}                     ,
-${GR}                  ,##;            
-${GR}                 ####             $userText $user
-${GR}                ;#'               $hostnameText $hostname
-${GR}       ,#####;,   ,;#####;,       $modelText $modelname
-${GR}     ######################'      $versionText $version
-${YE}    #####################'        $kernelText $kernel
-${YE}    #####################         $uptimeText $uptime
-${LR}    #####################         $shellText $shell
-${RE}    ######################,       $terminalText $terminal
-${RE}     #######################      $packagehandlerText $packagehandler
-${PU}      ####################'       $cpuText $cpu
-${BL}        #################'        $memoryText $mem
-${BL}         '####''''####'           $diskText $disk
+${GR}                  ,##;            $userText $user
+${GR}                 ####             $hostnameText $hostname
+${GR}                ;#'               $modelText $modelname
+${GR}       ,#####;,   ,;#####;,       $versionText $version
+${GR}     ######################'      $kernelText $kernel
+${YE}    #####################'        $uptimeText $uptime
+${YE}    #####################         $shellText $shell
+${LR}    #####################         $terminalText $terminal
+${RE}    ######################,       $packagehandlerText $packagehandler
+${RE}     #######################      $cpuText $cpu
+${PU}      ####################'       $memoryText $mem
+${BL}        #################'        $graphicsText $graphicsnoBrand
+${BL}         '####''''####'           $diskText $dused / $dcapacity, $dpercent
                                        ${normal}
 "
+

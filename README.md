@@ -45,6 +45,8 @@ Recent Changes
 * (Addition) Added model field to display Mac Model ID
 * (Features) Display more precise model details (e.g. iMac 27-inch, Late 2012)
 * (Features) Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
+* (Features) Display Total Hard Drive Space on Disk (currently shows only a percentage)
+* (Features) Display Graphics Card Model (system_profiler SPDisplaysDataType)
 
 
 To-Do List
@@ -60,5 +62,3 @@ Bug Fixes / Optimization
 
 Features
 * Look into being able to install via package manager (homebrew / macports)
-* Display Graphics Card Model (system_profiler SPDisplaysDataType)
-* Display Total Hard Drive Space on Disk (currently shows only a percentage)
