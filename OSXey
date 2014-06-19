@@ -38,6 +38,9 @@ versionNumber=$(sw_vers -productVersion) # Finds version number
 versionShort=${versionNumber:0:4}  # Cut sting to 1 decimal place for calculation
 		 
 case $versionShort in
+	10.10)
+		versionString="Yosemite"
+		;;
 	10.9)
 		versionString="Mavericks"
 		;;
