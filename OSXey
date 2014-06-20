@@ -35,7 +35,7 @@ awk '/Model/{for (i=1; i<=NF-3; i++) $i = $(i+3); NF-=3; print}' | paste -sd "/"
 # ==VERSION==
 versionNumber=$(sw_vers -productVersion) # Finds version number
 
-versionShort=${versionNumber:0:4}  # Cut sting to 1 decimal place for calculation
+versionShort=${versionNumber%.*}  # Cut string to major.minor semvar format
 		 
 case $versionShort in
 	10.10)
