@@ -198,7 +198,7 @@ cpuText="${textColor}CPU:${normal}"
 memoryText="${textColor}Memory:${normal}"
 graphicsText="${textColor}Graphics:$normal"
 diskText="${textColor}Disk:${normal}"
-ipText="${textColor}Internal Ip:${normal}"
+ipText="${textColor}IP:${normal}"
 
 echo -e "
 
