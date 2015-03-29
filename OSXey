@@ -93,9 +93,12 @@ awk '/Model/{for (i=1; i<=NF-3; i++) $i = $(i+3); NF-=3; print}' | paste -sd "/"
 # ==VERSION==
 versionNumber=$(sw_vers -productVersion) # Finds version number
 
-versionShort=${versionNumber:0:4}  # Cut sting to 1 decimal place for calculation
-		 
+[[ $versionNumber =~ ^[0-9]+\.[0-9]+ ]] && versionShort="${BASH_REMATCH[0]}" # Get first 2 portions of semver
+
 case $versionShort in
+	10.10)
+		versionString="Yosemite"
+		;;
 	10.9)
 		versionString="Mavericks"
 		;;
