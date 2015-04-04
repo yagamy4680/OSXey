@@ -12,7 +12,8 @@
 
 ### MacBook Pro 13-inch
 
-MacBook Pro (Retina, 13-inch, Late 2013)	MacBookPro11,1
+MacBook Pro (Retina, 13-inch, Early 2015)   MacBookPro12,1
+MacBook Pro (Retina, 13-inch, Mid 2014/Late 2013)	MacBookPro11,1
 MacBook Pro (Retina, 13-inch, Early 2013/Late 2012)	MacBookPro10,2
 MacBook Pro (13-inch, Mid 2012)	            MacBookPro9,2
 MacBook Pro (13-inch, Late 2011/Early 2011)	        MacBookPro8,1
@@ -22,7 +23,7 @@ MacBook Pro (13-inch, Mid 2009)          	MacBookPro5,5
 ### MacBook Pro 15-inch
 
 # Spaces? Appears in the document. Have to test on real machine
-MacBook Pro (Retina, 15-inch, Late 2013) MacBookPro11,2 || MacBookPro11,3
+MacBook Pro (Retina, 15-inch, Mid 2014/Late 2013) MacBookPro11,2 || MacBookPro11,3
 MacBook Pro (Retina, 15-inch, Mid 2012/Early 2013)	MacBookPro10,1	
 MacBook Pro (15-inch, Mid 2012)	MacBookPro9,1
 MacBook Pro (15-inch, Late 2011/Early 2011)	MacBookPro8,2
@@ -50,8 +51,10 @@ MacBook Pro (17-inch)	MacBookPro1,2
 # How to identify MacBook Air models
 # Taken from http://support.apple.com/kb/ht3255
 
-MacBook Air (13-inch, Mid 2013)	MacBookAir6,2
-MacBook Air (11-inch, Mid 2013)	MacBookAir6,1
+MacBook Air (13-inch, Early 2015)   MacBookAir7,2
+MacBook Air (11-inch, Early 2015)   MacBookAir7,1
+MacBook Air (13-inch, Early 2014/Mid 2013)	MacBookAir6,2
+MacBook Air (11-inch, Early 2014/Mid 2013)	MacBookAir6,1
 MacBook Air (13-inch, Mid 2012)	MacBookAir5,2
 MacBook Air (11-inch, Mid 2012)	MacBookAir5,1
 MacBook Air (13-inch, Mid 2011)	MacBookAir4,2
@@ -65,6 +68,8 @@ MacBook Air (13-inch, Early 2008)	MacBookAir1,1
 
 # How to identify iMac models
 # Taken from http://support.apple.com/kb/ht1758
+iMac (Retina, 27-inch, Late 2014)   iMac15,1   MF886XX/A
+iMac (21.5-inch, Mid 2014)   iMac14,4   MF883LL/A
 iMac (21.5-inch, Late 2013)	 iMac14,1	ME086XX/A
 iMac (27-inch, Late 2013)	 iMac14,2	ME088XX/A
 iMac (21.5-inch, Late 2012)	 iMac13,1	MD093XX/A
