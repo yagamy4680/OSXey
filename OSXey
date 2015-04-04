@@ -175,7 +175,7 @@ cpu=$(echo "$cpu" | awk '$1=$1' | sed 's/([A-Z]\{1,2\})//g')
 
 # ==MEMORY==
 mem=$(sysctl -n hw.memsize)
-mem="$((mem/1000000000)) GB"
+mem="$((mem/1073741274)) GB"
 
 # ==DISK==
 disk=`df -Hl | head -2 | tail -1`
