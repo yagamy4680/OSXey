@@ -80,6 +80,9 @@ awk '/Model/{for (i=1; i<=NF-2; i++) $i = $(i+2); NF-=2; print}' | paste -sd "/"
 
 graphicsnoBrand=$(system_profiler SPDisplaysDataType |
 awk '/Model/{for (i=1; i<=NF-3; i++) $i = $(i+3); NF-=3; print}' | paste -sd "/" -)
+
+resolution=$(system_profiler SPDisplaysDataType | grep Resolution | cut -d':' -f2 | sed -e 's/^[ \t]*//')
+
 # Use system_profiler to find graphics cards, then awk to find 'Model'
 # Output of this step is lines such as this:
 # > Chipset Model: Intel HD Graphics
@@ -141,9 +144,6 @@ esac
 
 version="OS X $versionNumber $versionString"
 
-# ==KERNEL==
-kernel="XNU"
-
 # ==UPTIME==
 uptime=$(uptime | sed 's/.*up \([^,]*\), .*/\1/')
 
@@ -175,7 +175,7 @@ cpu=$(echo "$cpu" | awk '$1=$1' | sed 's/([A-Z]\{1,2\})//g')
 
 # ==MEMORY==
 mem=$(sysctl -n hw.memsize)
-mem="$((mem/1000000000)) GB"
+mem="$((mem/1073741274)) GB"
 
 # ==DISK==
 disk=`df -Hl | head -2 | tail -1`
@@ -189,14 +189,14 @@ userText="${textColor}User:${normal}"
 hostnameText="${textColor}Hostname:${normal}"
 modelText="${textColor}Model:${normal}"
 versionText="${textColor}Version:${normal}"
-kernelText="${textColor}Kernel:${normal}"
 uptimeText="${textColor}Uptime:${normal}"
 shellText="${textColor}Shell:${normal}"
 terminalText="${textColor}Terminal:${normal}"
-packagehandlerText="${BL}${textColor}Packages:${normal}"
-cpuText="${textColor}CPU:${normal}"
+packagehandlerText="${textColor}Packages:${normal}"
+cpuText="${BL}${textColor}CPU:${normal}"
 memoryText="${textColor}Memory:${normal}"
-graphicsText="${textColor}Graphics:$normal"
+graphicsText="${textColor}Graphics:${normal}"
+resolutionText="${textColor}Resolution:${normal}"
 diskText="${textColor}Disk:${normal}"
 ipText="${textColor}IP:${normal}"
 
@@ -206,14 +206,14 @@ ${GR}                     ,            $userText $user
 ${GR}                  ,##;            $hostnameText $hostname
 ${GR}                 ####             $modelText $modelname
 ${GR}                ;#'               $versionText $version
-${GR}       ,#####;,   ,;#####;,       $kernelText $kernel
-${GR}     ######################'      $uptimeText $uptime
-${YE}    #####################'        $shellText $shell
-${YE}    #####################         $terminalText $terminal
-${LR}    #####################         $packagehandlerText $packagehandler
-${RE}    ######################,       $cpuText $cpu
-${RE}     #######################      $memoryText $mem
-${PU}      ####################'       $graphicsText $graphicsnoBrand
+${GR}       ,#####;,   ,;#####;,       $uptimeText $uptime
+${GR}     ######################'      $shellText $shell
+${YE}    #####################'        $terminalText $terminal
+${YE}    #####################         $packagehandlerText $packagehandler
+${LR}    #####################         $cpuText $cpu
+${RE}    ######################,       $memoryText $mem
+${RE}     #######################      $graphicsText $graphicsnoBrand
+${PU}      ####################'       $resolutionText $resolution
 ${BL}        #################'        $diskText $dused / $dcapacity, $dpercent
 ${BL}         '####''''####'           $ipText $ipAddress
                                        ${normal}
