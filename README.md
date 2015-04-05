@@ -64,6 +64,7 @@ Bug Fixes / Optimization
 * Better way of changing text color (use ""-text blue"" or "-text red" rather then "-red" or "-blue")
 * Test Units (For growing information such as hardware models and OSX versions)
 * Add manual install instructions in manual for those who don't want to use installer
+* Add color to disk info. Display Green /Yellow / Red for amount of space left. (Option to turn off)
 
 Features
 * Look into being able to install via package manager (homebrew / macports)
