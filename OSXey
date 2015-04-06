@@ -17,6 +17,9 @@ normal=$(tput sgr0)
 while [ $# -gt 0 ]
 do
 	case "$1" in
+
+    -c|--color)
+			GR='\033[00;32m'
 			YE='\033[00;33m'
 			LR='\033[01;31m'
 			RE='\033[00;31m'
