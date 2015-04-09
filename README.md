@@ -37,22 +37,6 @@ Options
 	-grey
 		Grey Text
 
-Recent Changes
---------------
-
-* (Addition) Included 10.10 OSX Version
-* (Addition) Added more model fields
-* (Feature) IP Address Field
-* (Addtion) Options for changing text color
-* (Optimization) Removed Escape Characters from ASCII art
-* (Optimization) Renamed color variables to all be same length - helps when echoing
-* (Optimzation) Aligned ASCII art / text in echo statement
-* (Addition) Added model field to display Mac Model ID
-* (Features) Display more precise model details (e.g. iMac 27-inch, Late 2012)
-* (Features) Smarter install script (create directory if doesn't exist, prompt if already uninstalled)
-* (Features) Display Total Hard Drive Space on Disk (currently shows only a percentage)
-* (Features) Display Graphics Card Model (system_profiler SPDisplaysDataType)
-
 
 To-Do List
 ------------
