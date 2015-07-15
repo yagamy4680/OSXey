@@ -1,5 +1,4 @@
-OSXey
-===============
+# OSXey
 
 Repo is being maintained regally again.
 
@@ -9,13 +8,11 @@ A script for OS X to display system information.
 !['Screenshot'](https://raw.github.com/Gary00/OSXey/master/screenshot_color.png)
 
 
-Auto Install / Uninstall
-------------
-Use 'install.sh` to both install and uninstall.
+## Auto Install / Uninstall
+Use install.sh to both install and uninstall.
 
 
-Options
-------------
+## Options
 	-c,  --color
 		Color Logo
 
@@ -38,10 +35,9 @@ Options
 		Grey Text
 
 
-To-Do List
-------------
+## To-Do List
 
-Bug Fixes / Optimization
+### Bug Fixes / Optimization
 * Look into $terminalText bug. Maybe find a better way of displaying colors then current method
 * Code cleanup
 * Update Screenshots
@@ -50,7 +46,7 @@ Bug Fixes / Optimization
 * Add manual install instructions in manual for those who don't want to use installer
 * Add color to disk info. Display Green /Yellow / Red for amount of space left. (Option to turn off)
 
-Features
+### Features
 * Look into being able to install via package manager (homebrew / macports)
 * Resolution information
 * Easy way to change info being displayed (maybe a config file ?)
