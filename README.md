@@ -8,7 +8,15 @@ A script for OS X to display system information.
 !['Screenshot'](https://raw.github.com/Gary00/OSXey/master/screenshot_color.png)
 
 ## Auto Install / Uninstall
+
 Use install.sh to both install and uninstall.
+
+
+### With [Homebrew](http://brew.sh):
+
+To install `brew install https://raw.githubusercontent.com/yagamy4680/OSXey/master/osxey.rb`
+
+To uninstall `brew remove osxey`
 
 ## Options
 	-c,  --color
